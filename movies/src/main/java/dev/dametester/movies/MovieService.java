@@ -3,11 +3,12 @@ package dev.dametester.movies;
 import java.util.List;
 import java.util.Optional;
 
-import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.mongodb.lang.NonNull;
+
+import dev.dametester.movies.models.MovieResponse;
 
 @Service
 public class MovieService {
@@ -15,11 +16,11 @@ public class MovieService {
     @Autowired
     private MovieRepository movieRepository;
 
-    public List<Movie> getAllMovies(){
+    public List<MovieResponse> getAllMovies(){
         return movieRepository.findAll();
     }
 
-    public Optional<Movie> getMovie(@NonNull ObjectId id){
+    public Optional<MovieResponse> getMovie(@NonNull String id){
         if (id != null) {
             return movieRepository.findById(id);
         } else {
@@ -28,7 +29,7 @@ public class MovieService {
     }
 
 
-    public Optional<Movie> getMovieByImdbId(String id) {
+    public Optional<MovieResponse> getMovieByImdbId(String id) {
         return movieRepository.findMovieByImdbId(id);
     }
 

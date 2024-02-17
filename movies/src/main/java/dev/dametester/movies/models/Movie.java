@@ -1,4 +1,4 @@
-package dev.dametester.movies;
+package dev.dametester.movies.models;
 
 import java.util.List;
 

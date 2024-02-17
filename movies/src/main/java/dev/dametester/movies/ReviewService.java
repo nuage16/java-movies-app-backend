@@ -6,6 +6,9 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Service;
 
+import dev.dametester.movies.models.Movie;
+import dev.dametester.movies.models.Review;
+
 @Service
 public class ReviewService {
 
@@ -17,6 +20,9 @@ public class ReviewService {
 
     public Review createReview(String reviewBody, String imdbId){
         Review review = reviewRepository.insert(new Review(reviewBody));
+
+        System.out.println("start hereee");
+        System.out.println(review);
 
         mongoTemplate.update(Movie.class)
         .matching(Criteria.where("imdbId").is(imdbId))

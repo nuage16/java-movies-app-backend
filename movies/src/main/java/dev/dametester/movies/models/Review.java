@@ -1,4 +1,4 @@
-package dev.dametester.movies;
+package dev.dametester.movies.models;
 
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
